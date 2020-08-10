@@ -1,0 +1,30 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "yarn && tsnd -r tsconfig-paths/register src/index.ts --respawn --transpileOnly",
+    "format": "prettier --write './**/*.{js,ts,md,json}'",
+    "lint": "eslint './src/**/*.{js,ts}'",
+    "dev": "yarn start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.16.0",
+    "fuzzysearch": "^1.0.3",
+    "graphql": "^15.3.0",
+    "lodash": "^4.17.19"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.158",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "ts-node-dev": "^1.0.0-pre.56",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.7"
+  }
+}

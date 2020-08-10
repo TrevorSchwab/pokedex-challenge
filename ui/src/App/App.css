@@ -1,0 +1,25 @@
+html,
+body,
+div#root {
+  font-family: 'Press Start 2P', cursive;
+  color: #000;
+  background-color: #e94847;
+  font-size: 16px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem !important;
+}
