@@ -1,2 +1,2 @@
 # pokedex-challenge
- It's a code challenge, the challenge being to finish the web app by implementing a few last minute major features in the UI and API.
+I had fun on this challenge! It's cool that your team runs prettier. It's such a nice tool. Thanks for considering me.
