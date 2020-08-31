@@ -88,7 +88,6 @@ const resolvers: IResolvers<any, any> = {
     ): Pokemon[] {
       const pokemonFiltered = Object.values(pokemon).filter(
         (pokemon: Pokemon) => {
-          console.log('types ', types)
           const pokemonByType = types.every(type =>
             pokemon.types.includes(type)
           )
