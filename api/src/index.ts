@@ -86,35 +86,23 @@ const resolvers: IResolvers<any, any> = {
         limit?: number
       }
     ): Pokemon[] {
-      const typesUpdate = Object.values(pokemon).filter((poke: Pokemon) => {
-        let combined: string[][] = []
-        combined.push(poke.types, types)
-        const result = combined.shift()?.filter((x: string) => {
-          return combined.every((y: string[]) => {
-            return y.indexOf(x) !== -1
-          })
-        })
-        if (result?.length === types?.length) {
-          return poke
+      const pokemonFiltered = Object.values(pokemon).filter(
+        (pokemon: Pokemon) => {
+          console.log('types ', types)
+          const pokemonByType = types.every(type =>
+            pokemon.types.includes(type)
+          )
+          const pokemonByWeakness = weaknesses.every(type =>
+            pokemon.weaknesses.includes(type)
+          )
+          const textSearch = fuzzysearch(
+            search.toLowerCase(),
+            pokemon.name.toLowerCase()
+          )
+          return pokemonByType && pokemonByWeakness && textSearch
         }
-      })
-
-      const combinedFilters = typesUpdate.filter((poke: Pokemon) => {
-        let combined: string[][] = []
-        combined.push(poke.weaknesses, weaknesses)
-        const result = combined.shift()?.filter((x: string) => {
-          return combined.every((y: string[]) => {
-            return y.indexOf(x) !== -1
-          })
-        })
-        if (result?.length === weaknesses?.length) {
-          if (fuzzysearch(search.toLowerCase(), poke.name.toLowerCase())) {
-            return poke
-          }
-        }
-      })
-
-      return sortBy(combinedFilters, poke => parseInt(poke.id, 10)).slice(
+      )
+      return sortBy(pokemonFiltered, poke => parseInt(poke.id, 10)).slice(
         skip,
         limit + skip
       )
